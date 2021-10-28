@@ -3,6 +3,8 @@ import ReactDOM from "react-dom"
 
 import {Button, Header, ImageGrid, Stats} from "./components";
 
+import "./App.scss"
+
 
 export const App = () => {
     return (
