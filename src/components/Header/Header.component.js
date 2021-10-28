@@ -1,11 +1,8 @@
 import React from "react"
+import {Container} from "./Header.style"
 
 const Header = () => {
-    return(
-        <div>
-            Header Component
-        </div>
-    )
+    return <Container>Image Gallery</Container>
 }
 
 export default Header

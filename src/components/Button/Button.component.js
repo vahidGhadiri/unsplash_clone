@@ -4,21 +4,21 @@ import {Container} from "./Button.style";
 import PropTypes from "prop-types"
 
 
-const Button = ({children, loading, ...props}) => {
+const Button = ({children, isLoading, ...props}) => {
     return (
-        <Container disabled={loading} {...props}>
-            {loading ? "loading..." : children}
+        <Container disabled={isLoading} {...props}>
+            {isLoading ? "loading..." : children}
         </Container>
     )
 }
 
 Button.defaultProps = {
-    loading: false,
+    isLoading: false,
     children: "Submit"
 }
 
 Button.defultProps = {
-    loading: PropTypes.string,
+    isLoading: PropTypes.bool,
     children: PropTypes.node
 }
 
