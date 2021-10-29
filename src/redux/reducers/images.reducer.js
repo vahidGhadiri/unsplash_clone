@@ -3,7 +3,8 @@ import {IMAGES} from "../../config/types";
 const initialState = {
     images: [],
     error: null,
-    isLoading: false
+    isLoading: false,
+    page: 0
 }
 
 export const imagesReducer = (state = initialState, action) => {
@@ -11,7 +12,7 @@ export const imagesReducer = (state = initialState, action) => {
         case IMAGES.FETCH:
             return {...state, isLoading: true}
         case IMAGES.FETCH_SUCCESS:
-            return {...state, isLoading: false, images: action.data}
+            return {...state, isLoading: false, images: [...state.images, ...action.data], page: state.page + 1}
         case IMAGES.FETCH_FAILED:
             return {...state, isLoading: false}
         default:
