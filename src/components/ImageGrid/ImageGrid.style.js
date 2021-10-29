@@ -1,5 +1,8 @@
-import styled from "./ImageGrid.component"
+import styled from "styled-components"
 
-export const Container = styled.div``
 
-export const Grid = styled.section``
+export const Container = styled.div`
+`
+
+export const Grid = styled.section`
+`

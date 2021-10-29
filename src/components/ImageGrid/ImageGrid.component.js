@@ -1,23 +1,20 @@
-import React, {useEffect} from "react"
+import React from "react"
 
 import {Button} from "../index"
 import {Container, Grid} from "./ImageGrid.style";
 import {connect} from "react-redux";
+import {fetchImages} from "../../redux/actions/images.action";
 
 
-const ImageGrid = ({isLoading, images, loadImages, error, imageStats}) => {
+const ImageGrid = (props) => {
 
-    useEffect(() => {
-        loadImages()
-    }, [])
 
     return (
         <Container>
             <Grid>
                 Image Grid
             </Grid>
-            {error && <div>{JSON.stringify(error.message)}</div>}
-            <Button onClick={() => loadImages()}>
+            <Button onClick={() => props.fetchImages()}>
                 Load more...
             </Button>
         </Container>
@@ -25,15 +22,12 @@ const ImageGrid = ({isLoading, images, loadImages, error, imageStats}) => {
 }
 
 
-const mapStateToProps = ({images, isLoading, error, imageStats}) => ({
-    images,
-    isLoading,
-    error,
-    imageStats,
+const mapStateToProps = state => ({
+    images: state.images.images
 })
 
 const mapDispatchToProps = dispatch => ({
-    loadImages: dispatch(loadImages())
+    fetchImages: () => dispatch(fetchImages())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageGrid)

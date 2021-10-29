@@ -1,4 +1,5 @@
-export const LOAD_IMAGES = "LOAD_IMAGES"
-export const IS_LOADING = "IS_LOADING"
-export const ERROR = "ERROR"
-export const IMAGE_STATS = "IMAGE_STATS"
+export const IMAGES = {
+    FETCH: "IMAGES_FETCH",
+    FETCH_SUCCESS: "IMAGES_FETCH_SUCCESS",
+    FETCH_FAILED: "IMAGES_FETCH_FAILED"
+}
