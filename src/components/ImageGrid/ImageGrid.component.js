@@ -19,10 +19,10 @@ class ImageGrid extends React.Component {
             <Container>
                 <Grid>
                     {this.props.images.map((image, index) => (
-                        <Image key={index}
+                        <div key={index}
                                style={{position: "relative", gridRow: `span ${Math.ceil(image.height / image.width)}`}}>
                             <img src={image.urls.small} alt={image.description}/>
-                        </Image>
+                        </div>
                     ))}
                 </Grid>
                 <Button onClick={() => this.props.fetchImages()}>

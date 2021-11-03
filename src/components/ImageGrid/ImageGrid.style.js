@@ -11,10 +11,9 @@ export const Container = styled.div`
 
 export const Grid = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 2.5rem;
   padding: 2.5rem;
-  grid-auto-flow: dense;
   align-items: stretch;
   width: 100%;
 
@@ -22,7 +21,6 @@ export const Grid = styled.section`
     border-radius: .2rem;
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
 `
 
@@ -31,8 +29,4 @@ export const Error = styled.div`
   padding: 1rem;
   border-radius: .4rem;
   border: .1rem solid tomato;
-`
-
-export const Image = styled.div`
-    
 `
