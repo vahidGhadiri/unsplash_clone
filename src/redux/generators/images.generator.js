@@ -13,4 +13,3 @@ export function* handleFetchImages() {
         yield put(setErr(e.message))
     }
 }
-

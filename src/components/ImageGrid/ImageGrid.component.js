@@ -4,30 +4,29 @@ import {connect} from "react-redux";
 import {fetchImages} from "../../redux/actions/images.action";
 import {Button} from "../index"
 
-import {Container, Grid} from "./ImageGrid.style";
+import {Container, Grid, Image} from "./ImageGrid.style";
 
 
 class ImageGrid extends React.Component {
+
     componentDidMount() {
-        console.log(this.props.page)
+        this.props.fetchImages()
     }
 
-    handleFetchImages = () => {
-        this.props.fetchImages(this.props.page)
-    }
 
     render() {
         return (
             <Container>
                 <Grid>
-                    {this.props.images.map(image => (
-                        <div key={image.id}>
-                            <img src={image.urls.small} alt=""/>
-                        </div>
+                    {this.props.images.map((image, index) => (
+                        <Image key={index}
+                               style={{position: "relative", gridRow: `span ${Math.ceil(image.height / image.width)}`}}>
+                            <img src={image.urls.small} alt={image.description}/>
+                        </Image>
                     ))}
                 </Grid>
-                <Button onClick={() => this.handleFetchImages()}>
-                    Load more...
+                <Button onClick={() => this.props.fetchImages()}>
+                    Load More...
                 </Button>
             </Container>
         )
@@ -42,7 +41,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    fetchImages: (page) => dispatch(fetchImages(page)),
+    fetchImages: () => dispatch(fetchImages()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageGrid)
